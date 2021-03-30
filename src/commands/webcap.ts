@@ -7,7 +7,7 @@ const command: Command = {
 	description: "to take a screenshoot from a web",
 	execute: async (msg, args) => {
 		let URL: string = args[0];
-		const path = "../img/screnshoot.png";
+		const path = "./img/screenshoot.png";
 		const width: number = parseInt(args[1]) || 1280;
 		const height: number = parseInt(args[2]) || 720;
 
@@ -18,7 +18,7 @@ const command: Command = {
 			width,
 			height,
 		});
-		msg.channel.send({ files: [path] });
+		await msg.channel.send({ files: [path] });
 		fs.unlinkSync(path);
 	},
 };
